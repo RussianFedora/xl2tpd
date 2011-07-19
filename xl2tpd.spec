@@ -6,7 +6,7 @@ Release: 1%{?dist}.R
 License: GPL+
 Url: http://www.xelerance.com/software/xl2tpd/
 Group: System Environment/Daemons
-Source0: http://www.xelerance.com/software/xl2tpd/xl2tpd-%{version}.tar.gz
+Source0: http://www.xelerance.com/wp-content/uploads/software/xl2tpd/xl2tpd-%{version}.tar.gz
 Patch00:        xl2tpd.c.patch
 Patch01:        control.c.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
