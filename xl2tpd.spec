@@ -95,7 +95,7 @@ fi
 %dir %{_localstatedir}/run/xl2tpd
 
 %changelog
-* Tue Jul 19 2011  <vascom2@gmail.com> - 1.2.7-4.R
+* Tue Jul 19 2011 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.7-4.R
 - added patches for vpnpptp
 
 * Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.7-3
