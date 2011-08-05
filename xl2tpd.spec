@@ -1,21 +1,16 @@
-Summary: Layer 2 Tunnelling Protocol Daemon (RFC 2661)
-Name: xl2tpd
-Version: 1.2.8
-Release: 1%{?dist}.R
-# No version specified.
-License: GPL+
-Url: http://www.xelerance.com/software/xl2tpd/
-Group: System Environment/Daemons
-Source0: http://www.xelerance.com/wp-content/uploads/software/xl2tpd/xl2tpd-%{version}.tar.gz
-Patch00:        xl2tpd.c.patch
-Patch01:        control.c.patch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires: ppp 
-%if 0%{?el3}%{?el4}
-BuildRequires: libpcap
-%else
+Summary:    Layer 2 Tunnelling Protocol Daemon (RFC 2661)
+Name:       xl2tpd
+Version:    1.3.0
+Release:    1%{?dist}.R
+
+License:    GPL+
+Url:        http://www.xelerance.com/software/xl2tpd/
+Group:      System Environment/Daemons
+Source0:    http://www.xelerance.com/wp-content/uploads/software/%{name}/%{name}-%{version}.tar.gz
+Patch00:    xl2tpd.c.patch
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Requires:   ppp 
 BuildRequires: libpcap-devel
-%endif
 Requires(post): /sbin/chkconfig
 Requires(preun): /sbin/chkconfig
 Requires(preun): /sbin/service
@@ -48,7 +43,6 @@ It was de-facto maintained by Jacco de Leeuw <jacco2@dds.nl> in 2002 and 2003.
 %prep
 %setup -q
 %patch00 -p1
-%patch01 -p1
 
 %build
 make DFLAGS="$RPM_OPT_FLAGS -g -DDEBUG_HELLO -DDEBUG_CLOSE -DDEBUG_FLOW -DDEBUG_PAYLOAD -DDEBUG_CONTROL -DDEBUG_CONTROL_XMIT -DDEBUG_FLOW_MORE -DDEBUG_MAGIC -DDEBUG_ENTROPY -DDEBUG_HIDDEN -DDEBUG_PPPD -DDEBUG_AAA -DDEBUG_FILE -DDEBUG_FLOW -DDEBUG_HELLO -DDEBUG_CLOSE -DDEBUG_ZLB -DDEBUG_AUTH"
@@ -86,6 +80,7 @@ fi
 %doc BUGS CHANGES CREDITS LICENSE README.* TODO doc/rfc2661.txt 
 %doc doc/README.patents examples/chapsecrets.sample
 %{_sbindir}/xl2tpd
+%{_sbindir}/xl2tpd-control
 %{_bindir}/pfc
 %{_mandir}/*/*
 %dir %{_sysconfdir}/xl2tpd
@@ -95,6 +90,10 @@ fi
 %dir %{_localstatedir}/run/xl2tpd
 
 %changelog
+* Wed Aug 05 2011 Vasiliy N. Glazov <vascom2@gmail.com> - 1.3.0-1.R
+- updated to 1.3.0
+- drop patch control.c.patch
+
 * Tue Jul 19 2011 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.8-1.R
 - updated to 1.2.8
 

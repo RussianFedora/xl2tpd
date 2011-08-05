@@ -1,6 +1,7 @@
---- xl2tpd-1.1.12/xl2tpd.c.orig	2007-10-20 08:22:55.000000000 +0400
-+++ xl2tpd-1.1.12/xl2tpd.c	2008-06-30 20:58:14.000000000 +0400
-@@ -584,9 +584,33 @@
+diff -uNdr xl2tpd-1.3.0/xl2tpd.c xl2tpd-1.3.0_new/xl2tpd.c
+--- xl2tpd-1.3.0/xl2tpd.c	2011-07-24 04:13:59.000000000 +0400
++++ xl2tpd-1.3.0_new/xl2tpd.c	2011-08-05 17:32:40.549581165 +0400
+@@ -633,9 +633,33 @@
      hp = gethostbyname (host);
      if (!hp)
      {
@@ -35,5 +36,5 @@
 +            return NULL;
 +        }
      }
-     bcopy (hp->h_addr, &addr, hp->h_length);
+     bcopy (hp->h_addr, &addr.s_addr, hp->h_length);
      /* Force creation of a new tunnel
