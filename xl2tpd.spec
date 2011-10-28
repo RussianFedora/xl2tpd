@@ -6,7 +6,7 @@ Release:    1%{?dist}.R
 License:    GPL+
 Url:        http://www.xelerance.com/software/xl2tpd/
 Group:      System Environment/Daemons
-Source0:    http://www.xelerance.com/wp-content/uploads/software/%{name}/%{name}-%{version}.tar.gz
+Source0:    ftp://ftp.xelerance.com/%{name}/%{name}-%{version}.tar.gz
 Patch00:    xl2tpd.c.patch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:   ppp 
